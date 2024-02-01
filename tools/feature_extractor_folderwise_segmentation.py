@@ -45,7 +45,8 @@ t.append(T.Normalize(model.pretrained_cfg['mean'], model.pretrained_cfg['std']))
 center_crop = T.Compose(t)
 
 
-save_dir = f"./pascal-5i/VOC2012/{feature_name}_{split}"
+#save_dir = f"./pascal-5i/VOC2012/{feature_name}_{split}"
+save_dir = f"./river/{feature_name}_{split}"
 if not os.path.exists(save_dir):
     os.makedirs(save_dir)
 # else:
@@ -53,9 +54,9 @@ if not os.path.exists(save_dir):
 #     sys.exit()
 
 
-meta_root = f"./evaluate/splits/pascal/{split}"
-image_root = "./pascal-5i/VOC2012/JPEGImages"
-for folder_id in tqdm(range(4)):
+meta_root = f"./evaluate/splits/river/{split}"
+image_root = "./river/JPEGImages"
+for folder_id in tqdm(range(1)):
     print(f"Processing folder {folder_id}")
     sys.stdout.flush()
     with open(os.path.join(meta_root, 'fold'+str(folder_id)+'.txt')) as f:
