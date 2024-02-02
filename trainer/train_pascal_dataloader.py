@@ -9,7 +9,7 @@ from torch.utils.data import Dataset
 import json
 import sys
 import random
-from evaluate.mae_utils import PURPLE, YELLOW
+from mae_utils import PURPLE, YELLOW
 
 
 def create_grid_from_images_old(canvas, support_img, support_mask, query_img, query_mask):
@@ -371,10 +371,11 @@ class DatasetPASCAL(Dataset):
             # cwd = os.path.dirname(os.path.abspath(__file__))
             cwd = 'evaluate'
 
+            # pascal to river
             if self.cluster:
-                fold_n_metadata_path = os.path.join(cwd, 'splits/pascal/%s/fold_cluster%d.txt' % (split, fold_id))
+                fold_n_metadata_path = os.path.join(cwd, 'splits/river/%s/fold_cluster%d.txt' % (split, fold_id))
             else:
-                fold_n_metadata_path = os.path.join(cwd, 'splits/pascal/%s/fold%d.txt' % (split, fold_id))
+                fold_n_metadata_path = os.path.join(cwd, 'splits/river/%s/fold%d.txt' % (split, fold_id))
 
             with open(fold_n_metadata_path, 'r') as f:
                 fold_n_metadata = f.read().split('\n')[:-1]
@@ -404,10 +405,11 @@ class DatasetPASCAL(Dataset):
             # cwd = os.path.dirname(os.path.abspath(__file__))
             cwd = 'evaluate'
 
+# pascal to river
             if self.cluster:
-                fold_n_metadata_path = os.path.join(cwd, 'splits/pascal/%s/fold_cluster%d.txt' % (split, fold_id))
+                fold_n_metadata_path = os.path.join(cwd, 'splits/river/%s/fold_cluster%d.txt' % (split, fold_id))
             else:
-                fold_n_metadata_path = os.path.join(cwd, 'splits/pascal/%s/fold%d.txt' % (split, fold_id))
+                fold_n_metadata_path = os.path.join(cwd, 'splits/river/%s/fold%d.txt' % (split, fold_id))
 
             with open(fold_n_metadata_path, 'r') as f:
                 fold_n_metadata = f.read().split('\n')[:-1]
